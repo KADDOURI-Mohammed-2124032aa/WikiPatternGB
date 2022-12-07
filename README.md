@@ -118,7 +118,85 @@ Prenons toujours l’exemple d’une console, on veut lancer un jeux, on fait al
 Il suffit donc de : 
 
 . Réunir tous les types que l’on souhaite passer à notre client sous une interface commune
+
 . De passer au client un objet du type de cette interface
+
+### Application de cet exemple en code Java
+
+Commençons par créer différents types et les placer sous la même interface
+
+```
+public interface INesVideoGame
+{
+    void Run();
+}
+
+public class SuperMarioBros : INesVideoGame
+{
+    public void Run() => Console.WriteLine("Playing Super Mario Bros");
+}
+
+public class Contra : INesVideoGame
+{
+    public void Run() => Console.WriteLine("Playing Contra");
+}
+
+public class DeadlyTowers : INesVideoGame
+{
+    public void Run() => Console.WriteLine("Suffering on Deadly Towers");
+}
+```
+Ensuite, créons notre client. Celui-ci possède bien sûr un constructeur, mais aussi une méthode Start() qui lui permettra de lancer le jeu injecté.
+
+```
+public class NintendoEntertainmentSystem
+{
+    private INesVideoGame VideoGame;
+
+    public NintendoEntertainmentSystem(INesVideoGame cartridge) =>
+        VideoGame = cartridge;
+
+    public void Start() => VideoGame?.Run();
+}
+```
+Maintenant utilisons le avec une fonction Main() qui est ici le contexte d'une console 
+
+```
+static void Main(string[] args)
+{
+    NintendoEntertainmentSystem nes;
+
+    var superMarioBrosCartridge = new SuperMarioBros();
+    nes = new NintendoEntertainmentSystem(superMarioBrosCartridge);
+    nes.Start();    // Playing Super Mario Bros
+
+    var contraCartridge = new Contra();
+    nes = new NintendoEntertainmentSystem(contraCartridge);
+    nes.Start();    // Playing Contra
+
+    var deadlyTowersCartridge = new DeadlyTowers();
+    nes = new NintendoEntertainmentSystem(deadlyTowersCartridge);
+    nes.Start();    // Suffering on Deadly Towers
+}
+```
+
+### Conclusion
+
+**Cas où on peut l'utiliser : **
+
+. Avoir un contrôle total sur la configuration d’un service
+
+. Altérer le comportement d’un client de l’extérieur
+
+. Réduire le nombre de paramètres d’une fonction
+
+
+**Cas où il vaut mieux ne pas l'utiliser :**
+
+. Votre service est construit sans paramètre extérieur. Typiquement, les objets locaux et/ou temporaires
+
+. Vous voulez limiter l’impact du contexte sur le service. Par exemple : si certaines données ne doivent pas être altérées hors du client
+
 
 
 
