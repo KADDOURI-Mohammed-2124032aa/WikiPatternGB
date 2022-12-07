@@ -1,6 +1,6 @@
 # Wiki
 
-**Paterns étudié :**
+**Patterns étudié :**
 
 1. Objet composite
 2. Injection de contrôle/dépendance
@@ -13,32 +13,32 @@ On a un problème, prenons deux produits et boîtes, une boîte contient plusieu
 
 ![exemple des boites](https://refactoring.guru/images/patterns/diagrams/composite/problem-fr.png?id=16882f793d754179a18458b6426b36bb)
 
-Une commande peut contenir divers produit a l'intérieur de boîtes, elles-mêmes rangées dans de plus grosses boîtes. La structure complète ressemble a un arbre.
+Une commande peut contenir divers produit à l'intérieur de boîtes, elles-mêmes rangées dans de plus grosses boîtes. La structure complète ressemble à un arbre.
 
 ![l'arbre](https://refactoring.guru/images/patterns/content/composite/composite.png?id=73bcf0d94db360b636cd745f710d19db)
 
-### Solution a la situation :
+### Solution à la situation :
 
 Nous pouvons manipuler les produits et les boîtes à l'aide d'une interface qui déclare une méthode de calcul du prix total. 
 
-C'est a dire que pour un produit on donne simplement son prix et pour une boîte, on parcourt chacun de ses objets, on leur demande leur prix, puis on donne un total pour la boîte. Si l'un de ces objets est une boîte plus petite, cette dernière va aussi parcourir son propre contenu et ainsi de suite, jusqu'à ce que tous les prix aient été calculés.
+C'est à dire que pour un produit on donne simplement son prix et pour une boîte, on parcourt chacun de ses objets, on leur demande leur prix, puis on donne un total pour la boîte. Si l'un de ces objets est une boîte plus petite, cette dernière va aussi parcourir son propre contenu et ainsi de suite, jusqu'à ce que tous les prix aient été calculés.
 
 ![Solution](https://refactoring.guru/images/patterns/content/composite/composite-comic-1-fr.png?id=b318eb1564d5ce4f75a66faa97e1ca6f)
 
 ### Qu'est-ce qu'un objet composite ?
 
 Un objet composite ou pattern composite (patron de conception en français) permet de gérer un ensemble d'objet.
-En effet en java il est facile de gerer un objet a la fois mais quand il faut en gérer plusieurs en même temps ou même gerer un ensemble d'objet ca peut poser problème.
+En effet en java il est facile de gérer un objet à la fois mais quand il faut en gérer plusieurs en même temps ou même gerer un ensemble d'objet ca peut poser problème.
 
 ### Comment l'utiliser en JAVA ?
 
 ![exemple avec un diagramme](https://miro.medium.com/proxy/1*FpmtB3L4DTIoZUgLYqjz2g.webp)
 
-Le composant déclare l'interface des objets qui rentre et implémente leur comportements. Il définit aussi une interface pour accéder aux composants enfants et les modifier.
+Le composant déclare l'interface des objets qui rentrent et implémente leurs comportements. Il définit aussi une interface pour accéder aux composants enfants et les modifier.
 
-Le composite définit le comportement des composant qui ont un composants enfants et vas les stockers puis implémenter leur opération.
+Le composite définit le comportement des composant qui ont un composant enfant et va les stocker puis implémenter leur opération.
 
-Le client lui vas utiliser l'interface définit par le composant pour pouvoir manipuler les objets.
+Le client lui va utiliser l'interface définit par le composant pour pouvoir manipuler les objets.
 
 La feuille n'a pas d'enfants et elle définit le comportement des objets avec opération().
 
@@ -52,7 +52,7 @@ public interface Department {
 
 On définit une interface Departement qui contient une fonction qui affiche le nom des départements.
 
-Ensuite on vas définir 2 classes qui vont contenir toute les deux la méthode pour afficher le nom des départements mais elles ne contiennent pas d'autre objet de la classe département.
+Ensuite on vas définir 2 classes qui vont contenir toute les deux la méthode pour afficher le nom des départements mais elles ne contiennent pas d'autres objets de la classe département.
 
 
 ```
@@ -77,7 +77,7 @@ public class SalesDepartment implements Department {
 }
 ```
 
-Puis enfin une classe composite qui vas contenir plusieur élément de la Class Departement et en plus en rajouter ou supprimer avec (addDepartment, removeDepartment) en plus de la méthode pour afficher les noms de département 
+Puis enfin une classe composite qui va contenir plusieurs éléments de la Class Departement et en plus en rajouter ou supprimer avec (addDepartment, removeDepartment) en plus de la méthode pour afficher les noms de département 
 
 ```
 public class HeadDepartment implements Department {
