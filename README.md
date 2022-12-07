@@ -14,7 +14,7 @@ En effet en java il est facile de gerer un objet a la fois mais quand il faut en
 
 Comment l'utiliser en JAVA ?
 
-
+![exemple avec un diagramme](https://miro.medium.com/proxy/1*FpmtB3L4DTIoZUgLYqjz2g.webp)
 
 ## Injection de contrôle/dépendance 
 
