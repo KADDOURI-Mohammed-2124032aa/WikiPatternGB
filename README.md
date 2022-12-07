@@ -32,6 +32,58 @@ public interface Department {
 }
 ```
 
+On définit une interface Departement qui contient une fonction qui affiche le nom des départements.
+
+Ensuite on vas définir 2 classes qui vont contenir toute les deux la méthode pour afficher le nom des départements mais elles ne contiennent pas d'autre objet de la classe département.
+
+
+```
+public class FinancialDepartment implements Department {
+	private Integer id;
+	private String name;
+	public void printDepartmentName() {
+		System.out.println(getClass().getSimpleName());
+	}
+	// standard constructor, getters, setters
+}
+```
+
+```
+public class SalesDepartment implements Department {
+	private Integer id;
+	private String name;
+	public void printDepartmentName() {
+		System.out.println(getClass().getSimpleName());
+	}
+	// standard constructor, getters, setters
+}
+```
+
+Puis enfin une classe composite qui vas contenir plusieur élément de la Class Departement et en plus en rajouter ou supprimer avec (addDepartment, removeDepartment) en plus de la méthode pour afficher les noms de département 
+
+```
+public class HeadDepartment implements Department {
+	private Integer id;
+	private String name;
+	private List<department> childDepartments;</department>
+	public HeadDepartment(Integer id, String name) {
+		this.id = id;
+		this.name = name;
+		this.childDepartments = new ArrayList<>();
+	}
+	public void printDepartmentName() {
+		childDepartments.forEach(Department::printDepartmentName);
+	}
+	public void addDepartment(Department department) {
+		childDepartments.add(department);
+	}
+	public void removeDepartment(Department department) {
+		childDepartments.remove(department);
+	}
+}
+```
+
+
 ## Injection de contrôle/dépendance 
 
 C'est un patron de conception consistant à construire les dépendances d’un module hors de celui-ci, afin d’obtenir un maximum de contrôle. 
