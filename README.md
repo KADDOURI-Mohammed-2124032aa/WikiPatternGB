@@ -113,8 +113,10 @@ C’est une solution aux modules qui contrôlent tout eux-mêmes, et donc vous n
 
 ![Diagramme](https://itexpert.fr/content/images/2021/03/6-1.png)
 
-Prenons toujours l’exemple d’une console, on veut lancer un jeux, on fait alors une classe avec un constructeur qui prend en paramètre le service et on va le stocker dans un champ (privé de préférence). Ici on veut laisser au contexte (le code qui appelle le client) le choix du type du service (le jeux). 
+Prenons toujours l’exemple d’une console, on veut lancer un jeux, on fait alors une classe avec un constructeur qui prend en paramètre le service et on va le stocker dans un champ (privé de préférence). Ici on veut laisser au contexte (le code qui appelle le client) le choix du type du service (le jeux).
+
 Il suffit donc de : 
+
 . Réunir tous les types que l’on souhaite passer à notre client sous une interface commune
 . De passer au client un objet du type de cette interface
 
