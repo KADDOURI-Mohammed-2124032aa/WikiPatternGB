@@ -19,4 +19,4 @@ Comment l'utiliser en JAVA ?
 ## Injection de contrôle/dépendance 
 
 C'est un patron de conception consistant à construire les dépendances d’un module hors de celui-ci, afin d’obtenir un maximum de contrôle. 
-L'injection de dépendance est une forme de ce que l'on appelle inversion des contrôles. c'est à dire 
+L'injection de dépendance est une forme de ce que l'on appelle inversion des contrôles. 
