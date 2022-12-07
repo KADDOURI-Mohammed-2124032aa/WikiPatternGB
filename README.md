@@ -182,7 +182,8 @@ static void Main(string[] args)
 
 ### Conclusion
 
-**Cas où on peut l'utiliser : **
+
+**Cas où on peut l'utiliser :**
 
 . Avoir un contrôle total sur la configuration d’un service
 
