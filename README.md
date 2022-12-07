@@ -219,5 +219,11 @@ static void Main(string[] args)
 
 
 
+## Source :
+*(https://www.ionos.fr/digitalguide/sites-internet/developpement-web/composite-pattern/)*
+*(https://support.zendesk.com/hc/fr/articles/4408846544922-Formatage-de-texte-avec-Markdown)*
+*(https://refactoring.guru/fr/design-patterns/composite)*
+*(https://support.zendesk.com/hc/fr/articles/4408846544922-Formatage-de-texte-avec-Markdown)*
+*(https://itexpert.fr/blog/injection-dependance/#explications)*
 
 
